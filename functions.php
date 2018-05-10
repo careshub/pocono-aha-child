@@ -7,9 +7,15 @@
 function virtue_child_arc_scripts() {
 	// Include the needed js file.
 	// wp_enqueue_script( 'virtue-child-arc-base-scripts', get_stylesheet_directory_uri( '/js/public.js' ), array( 'jquery' ), '1.0.1', true );
+
+    wp_enqueue_style( 'pocono-stylesheet', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'pocono-child-aha-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array( 'pocono-stylesheet' ),
+        wp_get_theme()->get('Version')
+    );
 }
 add_action( 'wp_enqueue_scripts', 'virtue_child_arc_scripts' );
-
 
 /**
  * Add the Google "noscript" tag immediately after the opening of the body element.
