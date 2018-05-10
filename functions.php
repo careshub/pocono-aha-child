@@ -59,12 +59,12 @@ function add_aha_required_header() {
     // This will load Twitter Bootstrap v3.3.0
     var ahaHeaderLoadBootstrap = false;
     var ahaLogo = true; // Show the Heart and Torch logo in the utility bar
-    var ahaDonateShow = true;//set to false to remove donate button
+    var ahaDonateShow = false;//set to false to remove donate button
     // Optional add campaign code to donate button
     var ahaDonateCampaignCode = '';//String
     var ahaDonateCustomLink = '';//Custom url instead of AHA standard donate link, example, http://donatenow.heart.org
     // Go to http://americanheartassociation.github.io/docs/new-header-footer.html for example
-    var ahaSearch = true; //Optional AHA search, uncomment and set to true for search
+    var ahaSearch = false; //Optional AHA search, uncomment and set to true for search
     // Optional custom search url search outside of heart.org as default
     // If blank then will default to '//www.heart.org/HEARTORG/search/searchResults.jsp'
     var ahaSearchURL = '';
@@ -75,12 +75,12 @@ function add_aha_required_header() {
     // <form method="" action="" id="name=""><label for=""><input name="" id="" type="text" placeholder="My Search"><button type="submit" id="" class="btn btn-primary">Submit</button></form>
     // Uncomment if want header to appear
     //Sub logo image has to be max-height at 80px
-    var subLogoHeaderOptions = {
-        'subLink':'http://professional.heart.org/professional/index.jsp',//required
-        'subImgPath':'//static.heart.org/ahaanywhere/responsive/img/AHALogo_full_red_blk@2x.png',//required
-        'subImgAltText':'Professional Heart Daily',//required
-        'subText':'New Header'//optional
-    };
+    // var subLogoHeaderOptions = {
+    //     'subLink':'http://professional.heart.org/professional/index.jsp',//required
+    //     'subImgPath':'//static.heart.org/ahaanywhere/responsive/img/AHALogo_full_red_blk@2x.png',//required
+    //     'subImgAltText':'Professional Heart Daily',//required
+    //     'subText':''//optional
+    // };
 	</script>
 	<script src="//static.heart.org/ahaanywhere/responsive/js/aha-header-external-responsive.v2.js" type="text/javascript"></script>
 	<?php
