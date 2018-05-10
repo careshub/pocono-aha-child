@@ -13,6 +13,9 @@
 
 	<?php do_action( 'pocono_before_footer' ); ?>
 
+	<?php /*
+	// AHA requires a syndicated footer, so it seems like the local footer will not be used.
+	?>
 	<div id="footer" class="footer-wrap">
 
 		<footer id="colophon" class="site-footer container clearfix" role="contentinfo">
@@ -26,7 +29,7 @@
 		</footer><!-- #colophon -->
 
 	</div>
-
+	<?php */ ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
