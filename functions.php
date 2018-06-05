@@ -100,20 +100,18 @@ function add_aha_required_footer() {
     // This is for the content in the yellow region
     // Comment out if not needed
     var footer_info_Object = [
-        {'header':{'content':'Password/Login Help'},
-            'body':{'content':'(888) 242-2453 (Inside U.S.) or (214) 570-5935 (Outside U.S.)'}
+        {
+            "header":{"content":"Technical Support"},
+            "body":{"content":"David Cavins<br>(573) 882-7458<br><a href='cavinsd@missouri.edu'>cavinsd@missouri.edu</a>"}
         },
-        {'header':{'content':'Membership & Subscription'},
-            'body':{'content':'(800) 787-8984 (Inside U.S.) or (301) 223-2307 (Outside U.S.)'}
+        {
+            "header":{"content":"Impact Central Support"},
+            "body":{"content":"Cherish Hart<br>7272 Greenville Ave, Dallas, TX 75231<br>(360) 471-5273<br><a href='mailto:cherish.hart@heart.org'>cherish.hart@heart.org</a>"}
         }
     ];
     //Customize your contact info under the logo
     //Uncomment if you want to customize the contact info
     //Comment out OR delete the footer_contact block if you want to use default contact info
-    var footer_contact = [
-        {"header":"National Center","body":"7272 Greenville Ave.<br>Dallas, TX 75231"},
-        {"header":"Customer Service","body":"1-800-AHA-USA-1<br>1-800-242-8721<br><a href='http://www.heart.org/HEARTORG/localization/chooseState.jsp' class='text-underline'>Local Info</a><br><a class='text-underline' href='http://www.heart.org/HEARTORG/General/Contact-Us_UCM_308813_Article.jsp'>Contact Us</a>"}
-    ];
     // Set true to show AHA dual logo with Heart & Stroke, set false to display AHA Heart logo
     var showDualLogo = false;
     // Set to true if need to inject Twitter Bootstrap
