@@ -8,3 +8,121 @@
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  pocono-child-aha
 */
+$red: #C10E21;
+$red-alt: #E11127;
+$blue: #334CD5;
+$blue-alt: #3B55E6;
+$black: #000000;
+$black-alt: #222328;
+$gray: #6D6E71;
+$gray-alt: #979797;
+$white: #FFFFFF;
+$white-alt: #F8F8F8;
+
+
+// Pocono overrides
+a {
+	color: $blue;
+}
+
+a:link,
+a:visited {
+	color: $blue-alt;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background: $red;
+}
+
+.site-title a:hover,
+.site-title a:active {
+	color: $blue-alt;
+}
+
+.sidebar-navigation-toggle:hover {
+	color: $blue-alt;
+}
+
+.main-navigation-menu a:hover,
+.main-navigation-menu a:active {
+	color: $blue-alt;
+}
+
+.main-navigation-menu ul {
+	background: $red;
+}
+
+.header-social-icons .social-icons-menu li a:hover {
+	color: $blue-alt;
+}
+
+.widget-title a:link,
+.widget-title a:visited  {
+	color: $blue-alt;
+}
+
+.widget-magazine-posts .widget-header .widget-title {
+	color: $red;
+}
+
+.entry-title a:hover,
+.entry-title a:active {
+	color: $red;
+}
+
+/* Read more Link */
+.more-link {
+	background: $red;
+}
+
+.entry-categories .meta-category a {
+	background: $red;
+}
+
+.entry-categories .meta-category a:hover,
+.entry-categories .meta-category a:active {
+	color: $red-alt;
+}
+
+.widget_tag_cloud .tagcloud a,
+.entry-tags .meta-tags a {
+	background: $blue;
+}
+
+.post-navigation .nav-links a:hover,
+.post-navigation .nav-links a:active {
+	background: $red-alt;
+}
+
+.page-header .archive-title {
+	color: $red;
+}
+
+.pagination a:hover,
+.pagination .current {
+	background: $red-alt;
+}
+
+.infinite-scroll #infinite-handle span:hover {
+	background-color: $red-alt;
+}
+
+.comments-header .comments-title,
+.comment-reply-title span {
+	border: 3px solid $red;
+	color: $red;
+}
+
+.reply .comment-reply-link:hover,
+.reply .comment-reply-link:active {
+	background: $red-alt;
+}
+@media only screen and (max-width: 60em) {
+	.main-navigation-menu .submenu-dropdown-toggle:hover:before,
+	.main-navigation-menu .submenu-dropdown-toggle:active:before {
+		color: $red;
+	}
+}
