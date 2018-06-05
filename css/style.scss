@@ -135,3 +135,20 @@ input[type="submit"] {
 	list-style: none;
 	padding-left: 0;
 }
+
+// Sidebar Navigation
+.sidebar-navigation {
+	padding: 0;
+	.menu-item {
+		border-bottom: 1px solid #dddddd;
+	}
+	.sub-menu .menu-item {
+		border-bottom: 1px solid $red-alt;
+	}
+}
+// Hide the toggle and such on large screens.
+@media only screen and (min-width: 60em) {
+	.site-header {
+		display: none;
+	}
+}
