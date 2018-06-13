@@ -152,3 +152,25 @@ input[type="submit"] {
 		display: none;
 	}
 }
+
+// Login form
+.front-page-login-form {
+	.Grid-cell-liner {
+		border: solid 1px lighten( $gray-alt, 20% );
+	}
+	.login-header {
+		margin-top: 0;
+		// margin-left: 1em;
+	}
+	.login-form-password-label {
+		margin-top: .5em;
+	}
+	form[name="login-form"] {
+		label {
+			display: block
+		}
+		input[type="submit"] {
+			margin: 1em 0;
+		}
+	}
+}

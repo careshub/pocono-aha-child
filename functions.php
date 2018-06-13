@@ -122,3 +122,32 @@ function add_aha_required_footer() {
 	<?php
 }
 add_action( 'wp_footer', 'add_aha_required_footer', 88 );
+
+function aha_login_form_shortcode() {
+    if ( is_user_logged_in() ) {
+        return '';
+    }
+
+    ob_start();
+    ?>
+    <form name="login-form" id="front-page-login-form" class="standard-form" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+        <label><?php _e( 'Username or email', 'buddypress' ) ?><br />
+        <input type="text" name="log" id="front-page-user-login" class="full-width-input input" value="" tabindex="" /></label>
+
+        <label class="login-form-password-label"><?php _e( 'Password', 'buddypress' ) ?><br />
+        <input type="password" name="pwd" id="front-page-user-pass" class="full-width-input input" value="" tabindex="" /></label>
+
+        <input type="submit" name="wp-submit" id="front-page-wp-submit" value="<?php _e( 'Log In', 'buddypress' ); ?>" tabindex="100" />
+        <input type="hidden" name="redirect_to" value="<?php echo ( is_ssl() ? 'https://' : 'http://' ) .  $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI'] ?>" />
+    </form>
+    <a href="<?php echo wp_lostpassword_url( ( is_ssl() ? 'https://' : 'http://' ) .  $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI'] ); ?>" class="forgot-password">Forgot your password or username?</a>
+    <?php do_action( 'cares_after_login_form' ); ?>
+    <?php if ( get_option( 'users_can_register' ) ) : ?>
+        <hr />
+        <p class="register-link">Or <a href="<?php echo site_url( bp_get_signup_slug() ); ?>" title="Create an account"><strong>Register</strong> for an account</a> and start learning how to make positive change in your community today.</p>
+    <?php endif;
+    return ob_get_clean();
+}
+add_shortcode( 'aha-login-form', 'aha_login_form_shortcode' );
+
+
