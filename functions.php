@@ -101,11 +101,11 @@ function add_aha_required_footer() {
     // Comment out if not needed
     var footer_info_Object = [
         {
-            "header":{"content":"Technical Support"},
+            "header":{"content":"TECHNICAL SUPPORT"},
             "body":{"content":"David Cavins<br>(573) 882-7458<br><a href='cavinsd@missouri.edu'>cavinsd@missouri.edu</a>"}
         },
         {
-            "header":{"content":"Impact Central Support"},
+            "header":{"content":"IMPACT CENTRAL SUPPORT"},
             "body":{"content":"Cherish Hart<br>7272 Greenville Ave, Dallas, TX 75231<br>(360) 471-5273<br><a href='mailto:cherish.hart@heart.org'>cherish.hart@heart.org</a>"}
         }
     ];
