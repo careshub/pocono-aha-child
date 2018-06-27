@@ -173,6 +173,10 @@ input[type="submit"] {
 			margin: 1em 0;
 		}
 	}
+	.log-in-with-sso-forward,
+	.log-in-with-sso {
+		display: inline-block;
+	}
 }
 
 .starter-maps-grid {
@@ -180,4 +184,37 @@ input[type="submit"] {
 		margin-top: .2em;
 		display: inline-block;
 	}
+}
+
+/**** AUTOCOMPLETE ***/
+.ui-autocomplete{
+	border: 1px solid $gray;
+    border-radius: 3px;
+    font-family: inherit;
+    // padding: 0.428571rem;
+}
+ul.ui-autocomplete {
+	background-color: $white;
+	max-width:300px;
+}
+ul.ui-autocomplete li{
+	padding:8px 4px;
+}
+ul.ui-autocomplete li:hover{
+	background-color:$red;
+	color:white;
+}
+.ui-autocomplete-input{
+	min-width:60px;
+}
+tr.priority_staff_save td{
+	padding-bottom:24px;
+}
+a.submit_staff_partners{
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+.close{
+	vertical-align:super
 }
