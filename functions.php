@@ -102,7 +102,7 @@ function add_aha_required_footer() {
     var footer_info_Object = [
         {
             "header":{"content":"TECHNICAL SUPPORT"},
-            "body":{"content":"David Cavins<br>(573) 882-7458<br><a href='cavinsd@missouri.edu'>cavinsd@missouri.edu</a>"}
+            "body":{"content":"David Cavins<br>(573) 882-7458<br><a href='cavinsd@missouri.edu'>cavinsd@missouri.edu</a><br /><a href='/terms-of-service'>Terms of Service</a>"}
         },
         {
             "header":{"content":"IMPACT CENTRAL SUPPORT"},
