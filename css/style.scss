@@ -23,6 +23,9 @@ $white-alt: #F8F8F8;
 // Pocono overrides
 a {
 	color: $blue;
+	&:hover {
+		text-decoration: underline; //accessibility
+	}
 }
 
 a:link,
@@ -46,13 +49,20 @@ input[type="submit"] {
 	color: $blue-alt;
 }
 
-.main-navigation-menu a:hover,
-.main-navigation-menu a:active {
-	color: $blue-alt;
+.main-navigation-menu a {
+	font-weight: 700;
+	&:hover,
+	&:active {
+		color: $blue-alt;
+	}
 }
 
 .main-navigation-menu ul {
 	background: $red;
+}
+
+.main-navigation-menu ul a:hover {
+	background: $blue;
 }
 
 .header-social-icons .social-icons-menu li a:hover {
