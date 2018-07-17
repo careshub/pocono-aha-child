@@ -102,7 +102,7 @@ function add_aha_required_footer() {
     var footer_info_Object = [
         {
             "header":{"content":"TECHNICAL SUPPORT"},
-            "body":{"content":"David Cavins<br>(573) 882-7458<br><a href='cavinsd@missouri.edu'>cavinsd@missouri.edu</a><br /><a href='/terms-of-service'>Terms of Service</a>"}
+            "body":{"content":"Mon-Fri 8am to 7pm Central<br /><a href='https://techhelp.heart.org'>techhelp.heart.org</a><br />(573) 214-570-5970 (Local) 800-527-2393 (Toll-Free)<br /><a href='aha.service.desk@heart.org'>aha.service.desk@heart.org</a><br /><a href='/terms-of-service'>Terms of Service</a>"}
         },
         {
             "header":{"content":"IMPACT CENTRAL SUPPORT"},
