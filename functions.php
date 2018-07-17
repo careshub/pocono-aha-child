@@ -26,25 +26,28 @@ add_action( 'wp_enqueue_scripts', 'virtue_child_arc_scripts' );
 function pocono_child_aha_add_google_tag_manager_noscript_tag() {
 	?>
 	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=ACCOUNT_ID_GOES_HERE"
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6ZC6GB"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	<?php
 }
-// add_action( 'pocono_child_aha_after_body', 'pocono_child_aha_add_google_tag_manager_noscript_tag' );
 
-function cares_virt_child_add_google_tag_manager_script() {
+function pocono_child_aha_add_google_tag_manager_script() {
+    // AHA container: GTM-M6ZC6GB
 	?>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','ACCOUNT ID GOES HERE');</script>
+	})(window,document,'script','dataLayer','GTM-M6ZC6GB');</script>
 	<!-- End Google Tag Manager -->
 	<?php
 }
-// add_action( 'wp_head', 'pocono_child_aha_add_google_tag_manager_script' );
+if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+    add_action( 'pocono_child_aha_after_body', 'pocono_child_aha_add_google_tag_manager_noscript_tag' );
+    add_action( 'wp_head', 'pocono_child_aha_add_google_tag_manager_script' );
+}
 
 /**
  * Add the required heart.org header.
