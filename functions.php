@@ -153,4 +153,11 @@ function aha_login_form_shortcode() {
 }
 add_shortcode( 'aha-login-form', 'aha_login_form_shortcode' );
 
+// Accessibility changes
+// Remove secondary avatars from activity item headers
+add_action( 'bp_theme_compat_actions', 'aha_remove_secondary_avatars' );
+function aha_remove_secondary_avatars( $bp_legacy ) {
+    remove_filter( 'bp_get_activity_action_pre_meta', array( $bp_legacy, 'secondary_avatars' ), 10, 2 );
+}
+
 
