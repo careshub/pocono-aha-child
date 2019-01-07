@@ -3,7 +3,7 @@
  Description:  Pocono Child Theme for use with AHA site.
  Author:       David Cavins
  Template:     pocono
- Version:      1.0.0
+ Version:      1.1.0
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  pocono-child-aha
@@ -26,11 +26,23 @@ a {
 	&:hover {
 		text-decoration: underline; //accessibility
 	}
+	&:focus {
+		outline: LightBlue solid 2px;
+	}
 }
 
 a:link,
 a:visited {
 	color: $blue-alt;
+}
+
+// Lots of plugins also use this class, so it gets messed up.
+.screen-reader-text	{
+	&:hover,
+	&:active,
+	&:focus {
+		clip-path: none;
+	}
 }
 
 button,
@@ -48,6 +60,19 @@ input[type="submit"] {
 		background: $white;
 		color: $red;
 	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: #545454; // accessibility
+}
+
+.long-text-input {
+	width: 100%;
 }
 
 #buddypress .comment-reply-link,
@@ -76,9 +101,38 @@ a.bp-title-button {
 #buddypress input[type="button"]:hover,
 #buddypress input[type="reset"]:hover,
 #buddypress input[type="submit"]:hover,
+#buddypress input[type="submit"]:focus,
 #buddypress ul.button-nav li a:hover,
 #buddypress ul.button-nav li.current a {
+	background: #ededed;
 	color: black;
+}
+
+// Activity stream
+#buddypress {
+	.activity-list .activity-content .activity-header,
+	.activity-list .activity-content .comment-header {
+	color: $black;
+	}
+	.acomment-meta a,
+	.activity-header a,
+	.comment-meta a {
+		text-decoration: underline;
+	}
+	a.activity-time-since {
+		color: $black-alt;
+	}
+}
+
+// Members
+#buddypress {
+	div#item-header-cover-image .user-nicename a,
+	div#item-header-cover-image .user-nicename {
+		text-shadow: 0 0 6px rgba( 0, 0, 0, 1 );
+	}
+	#header-cover-image {
+	    background-color: #555;
+	}
 }
 
 .site-title a:hover,
@@ -95,6 +149,7 @@ a.bp-title-button {
 	&:hover,
 	&:active {
 		color: $blue-alt;
+		text-decoration: underline;
 	}
 }
 
@@ -270,4 +325,30 @@ a.submit_staff_partners{
 
 .close{
 	vertical-align:super
+}
+
+/*Plugin overrides*/
+.bp-user form#invite-anyone-by-email .description {
+	color: #545454; // Accessibility: color contrast
+}
+
+// CARES Data Tools
+#cdt .cdt-submenu .js-toggle-control {
+	background-color: #dedede;
+	color: $black;
+	&.active {
+		background-color: $red;
+		color: $white;
+	}
+}
+
+// Forum style changes
+#bbpress-forums #bbp-search-form .screen-reader-text.hidden {
+	display: inline-block;
+	position: relative !important;
+	height: auto;
+	width: auto;
+	clip: inherit;
+	clip-path: inherit;
+	left: 0;
 }
