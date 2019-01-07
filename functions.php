@@ -190,3 +190,17 @@ add_filter( 'bp_get_add_friend_button', function( $button ) {
     return $button;
 });
 
+/*
+ * The at-who library generates items with duplicate IDs.
+ * It's easier to remove the functionality to satisfy accessibility requirements
+ * than to override the core files.
+ */
+add_filter( 'bp_core_register_common_scripts', function ( $scripts ) {
+    if ( isset( $scripts['jquery-atwho'] ) ) {
+        unset( $scripts['jquery-atwho'] );
+    }
+    if ( isset( $scripts['jquery-caret'] ) ) {
+        unset( $scripts['jquery-caret'] );
+    }
+    return $scripts;
+});
