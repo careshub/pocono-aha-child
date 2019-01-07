@@ -160,4 +160,33 @@ function aha_remove_secondary_avatars( $bp_legacy ) {
     remove_filter( 'bp_get_activity_action_pre_meta', array( $bp_legacy, 'secondary_avatars' ), 10, 2 );
 }
 
+/*
+ * Each "Add Friend" action link must have unique link text according to AHA's accessibility group.
+ * This inserts the user's name as a way to uniquefy the link text.
+ */
+add_filter( 'bp_get_add_friend_button', function( $button ) {
+    $friend_id = (int) str_replace( 'friendship-button-', '', $button['wrapper_id'] );
+    $friend = get_user_by( 'id', $friend_id );
+    $friend_name = $friend->display_name;
+
+    switch ( $button['id'] ) {
+        case 'pending':
+             $button['link_text'] = "Cancel Friendship Request to {$friend_name}";
+            break;
+        case 'awaiting_response':
+             $button['link_text'] = "Friendship Requested of {$friend_name}";
+            break;
+        case 'is_friend':
+             $button['link_text'] = "Cancel Friendship with {$friend_name}";
+            break;
+        case 'not_friends':
+             $button['link_text'] = "Request Friendship with {$friend_name}";
+            break;
+        default:
+            # code...
+            break;
+    }
+
+    return $button;
+});
 
