@@ -88,7 +88,7 @@ function add_aha_required_header() {
 	<script src="//static.heart.org/ahaanywhere/responsive/js/aha-header-external-responsive.v2.js" type="text/javascript"></script>
 	<?php
 }
-add_action( 'pocono_child_aha_after_body', 'add_aha_required_header' );
+add_action( 'pocono_child_aha_after_skip_link', 'add_aha_required_header' );
 
 /**
  * Add the required heart.org header.
