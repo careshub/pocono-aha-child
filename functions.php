@@ -44,7 +44,7 @@ function pocono_child_aha_add_google_tag_manager_script() {
 	<!-- End Google Tag Manager -->
 	<?php
 }
-if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+if ( false !== strpos( get_site_url(), 'impactcentral.heart.org' ) ) {
     add_action( 'pocono_child_aha_after_body', 'pocono_child_aha_add_google_tag_manager_noscript_tag' );
     add_action( 'wp_head', 'pocono_child_aha_add_google_tag_manager_script' );
 }
