@@ -352,3 +352,26 @@ a.submit_staff_partners{
 	clip-path: inherit;
 	left: 0;
 }
+
+// printing improvements
+.aha-print-only {
+	display: none;
+}
+/* for printer only */
+@media only print {
+	.aha-print-only {
+		display: block;
+	}
+	.aha-screen-only,
+	#page #top-header, // I'm not kidding.
+	.hidden-print {
+		display: none !important;
+	}
+
+	.page-template-template-transamerica-report #cdt .cdt-indicator-container:first-of-type {
+		margin-top: 1em !important;
+		h3:first-of-type {
+			margin-top: 0;
+		}
+	}
+}
