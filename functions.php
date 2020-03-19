@@ -12,7 +12,7 @@ function virtue_child_arc_scripts() {
     wp_enqueue_style( 'pocono-child-aha-style',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'pocono-stylesheet' ),
-        wp_get_theme()->get('Version')
+        "6.0.0"
     );
 }
 add_action( 'wp_enqueue_scripts', 'virtue_child_arc_scripts' );
@@ -109,7 +109,7 @@ function add_aha_required_footer() {
         },
         {
             "header":{"content":"IMPACT CENTRAL SUPPORT"},
-            "body":{"content":"Cherish Hart<br>7272 Greenville Ave, Dallas, TX 75231<br>(360) 471-5273<br><a href='mailto:cherish.hart@heart.org'>cherish.hart@heart.org</a>"}
+            "body":{"content":"LaToya Stewart<br>7272 Greenville Ave, Dallas, TX 75231<br>(360) 471-5273<br><a href='mailto:LaToya.Stewart@heart.org'>LaToya.Stewart@heart.org</a>"}
         }
     ];
     //Customize your contact info under the logo
