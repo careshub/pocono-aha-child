@@ -292,6 +292,22 @@ a.bp-title-button {
 	}
 }
 
+.vpf-thumbnail,
+.map-thumbnail,
+.report-thumbnail {
+	background-image: url( 'images/report-thumbnail.png' );
+	background-repeat: no-repeat;
+	max-width: 520px;
+	height: 330px;
+	margin-bottom: 1em;
+}
+.vpf-thumbnail {
+	background-image: url( 'images/vpf-thumbnail.png' );
+}
+.map-thumbnail {
+	background-image: url( 'images/map-thumbnail.png' );
+}
+
 /**** AUTOCOMPLETE ***/
 .ui-autocomplete{
 	border: 1px solid $gray;
@@ -363,7 +379,7 @@ a.submit_staff_partners{
 		display: block;
 	}
 	.aha-screen-only,
-	#page #top-header, // I'm not kidding.
+	#page #top-header,
 	.hidden-print {
 		display: none !important;
 	}
