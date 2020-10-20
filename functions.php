@@ -56,6 +56,9 @@ if ( false !== strpos( get_site_url(), 'impactcentral.heart.org' ) ) {
  *
  */
 function add_aha_required_header() {
+    if ( defined( 'DEV_ENVIRONMENT' ) && DEV_ENVIRONMENT ) {
+        return;
+    }
 	?>
 	<script type="text/javascript">
     // HEADER OPTIONS - - - - - - - - - - - - -
@@ -97,6 +100,9 @@ add_action( 'pocono_child_aha_after_skip_link', 'add_aha_required_header' );
  *
  */
 function add_aha_required_footer() {
+    if ( defined( 'DEV_ENVIRONMENT' ) && DEV_ENVIRONMENT ) {
+        return;
+    }
 	?>
 	<script type="text/javascript">
     // FOOTER OPTIONS - - - - - - - - - - - - - - -
