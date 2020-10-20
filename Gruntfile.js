@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
 	// load all grunt tasks matching the `grunt-*` pattern
 	require('load-grunt-tasks')(grunt);
+	var sass = require('node-sass');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -23,9 +24,9 @@ module.exports = function(grunt) {
 		},
 
 		sass: {
-			// options: {
-			// 	sourceMap: true
-			// },
+			options: {
+				implementation: sass
+			},
 			dist: {
 				files: {
 				    'style.css': 'css/style.scss'
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
 				},
 				processors: [
 					require('postcss-flexbugs-fixes'),
-					require('autoprefixer')({browsers: 'last 2 versions'}),
+					require('autoprefixer'),
 					require('cssnano')({ discardUnused: { fontFace: false }, zindex: false })
 				]
 			},
