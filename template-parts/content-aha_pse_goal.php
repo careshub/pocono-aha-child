@@ -24,8 +24,6 @@
 
 		<div class="entry-content clearfix">
 
-			<?php the_content(); ?>
-
 			<?php if ( function_exists( 'aha_render_meta' ) ) {
 				aha_render_meta();
 			} ?>
