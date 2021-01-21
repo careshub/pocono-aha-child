@@ -115,7 +115,7 @@ function add_aha_required_footer() {
         },
         {
             "header":{"content":"IMPACT CENTRAL SUPPORT"},
-            "body":{"content":"LaToya Stewart<br>7272 Greenville Ave, Dallas, TX 75231<br>(360) 471-5273<br><a href='mailto:LaToya.Stewart@heart.org'>LaToya.Stewart@heart.org</a>"}
+            "body":{"content":"LaToya Stewart<br>7272 Greenville Ave, Dallas, TX 75231<br>(817) 800-2110<br><a href='mailto:LaToya.Stewart@heart.org'>LaToya.Stewart@heart.org</a>"}
         }
     ];
     //Customize your contact info under the logo
