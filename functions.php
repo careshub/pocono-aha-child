@@ -114,8 +114,8 @@ function add_aha_required_footer() {
             "body":{"content":"Mon-Fri 8am to 7pm Central<br /><a href='https://techhelp.heart.org'>techhelp.heart.org</a><br />(573) 214-570-5970 (Local) 800-527-2393 (Toll-Free)<br /><a href='aha.service.desk@heart.org'>aha.service.desk@heart.org</a><br /><a href='/terms-of-service'>Terms of Service</a>"}
         },
         {
-            "header":{"content":"IMPACT CENTRAL SUPPORT"},
-            "body":{"content":"LaToya Stewart<br>7272 Greenville Ave, Dallas, TX 75231<br>(817) 800-2110<br><a href='mailto:LaToya.Stewart@heart.org'>LaToya.Stewart@heart.org</a>"}
+            "header":{"content":"COMMUNITY IMPACT SUPPORT"},
+            "body":{"content":"<a href='https://aha.cherwellondemand.com/CherwellPortal/community'>Visit the Community Impact Support Gateway</a>"}
         }
     ];
     //Customize your contact info under the logo
