@@ -29,7 +29,8 @@ get_header(); ?>
 // Find progress items that are 2022 and not approved, get parent ids check parent status-- trashed?
 $prog_ids = get_unapproved_progress_items();
 // var_dump( count($prog_ids), $prog_ids );
-print_r( "prog_ids " .implode( ",", $prog_ids ) );
+print_r( "Incomplete progress items/progress items with incomplete parent PSEs" . "\n" );
+print_r( "progress item ids: " .implode( ",", $prog_ids ) );
 $progs = get_progress_items_by_ids( $prog_ids );
 
 foreach ( $progs as $prog ) {
@@ -40,8 +41,7 @@ foreach ( $progs as $prog ) {
 }
 
 $parents = get_parent_item_meta_for_items( $prog_ids );
-print_r( "parents " . implode( ",", $parents ) );
-
+print_r( "parent PSEs: " . implode( ",", $parents ) );
 
 // var_dump( count($parents), $parents );
 $parent_posts = get_pipelines_by_ids( $parents );
@@ -66,7 +66,7 @@ function run_pse_migration( $dry_run = true ) {
 		$assoc_progress_items = get_ids_of_progress_items_to_migrate( $pses_to_migrate );
 	}
 	print_r( "\nProgress items assoc with thse incomplete PSEs, count " . count( $assoc_progress_items ) . "\n" );
-	print_r( "Progs, ids" );
+	print_r( "Progress Items, ids" );
 	print_r( "\n" . implode( ', ', $assoc_progress_items ) );
 
 	if ( false === $dry_run ) {
@@ -92,31 +92,7 @@ function migrate_pses( $ids = array() ) {
 			update_post_meta( $post_id, 'fy_achieve_goal', 'FY2023' );
 		}
 
-		// Update the old location format to the new format.
-		// separate clinical_change_clinic_name, clinical_change_clinic_id meta to
-		// an array with the meta_key clinical_change_locations with "name" and "id" keys.
-		$save_clinic_loc = false;
-		$clinical_change_locations = array(
-			array(
-				'id' => 0,
-				'name' => '',
-				'hrsa_site' => false,
-				'rural_site' => false,
-			),
-		);
-		$name = get_post_meta( $post_id, 'clinical_change_clinic_name', true );
-		if ( false !== $name ) {
-			$clinical_change_locations[0]['name'] = $name;
-			$save_clinic_loc = true;
-		}
-		$id = get_post_meta( $post_id, 'clinical_change_clinic_id', true );
-		if ( false !== $id ) {
-			$clinical_change_locations[0]['id'] = $id;
-			$save_clinic_loc = true;
-		}
-		if ( $save_clinic_loc ) {
-			update_post_meta( $post_id, 'clinical_change_locations', $clinical_change_locations );
-		}
+		// No meta format changes for 22-23. For examples, see 21-22 version.
 
 	}
 
@@ -139,17 +115,17 @@ function get_ids_of_pses_to_migrate( $return_all = false ) {
 	$all_pses = get_all_pipeline_ids();
 	print_r( "\nAll PSEs, count " . count( $all_pses ) . "\n" );
 
-	var_dump( "\nleftovers? ", array_diff( $pse_ids, $all_pses ) );
+	// var_dump( "\nleftovers? ", array_diff( $pse_ids, $all_pses ) );
 
 	// Get all approved progress items.
 	$approved_progress_items = get_approved_progress_items();
 	print_r( "\nApproved progress items, count " . count( $approved_progress_items ) . "\n" );
-	var_dump( "\nleftovers progs? ", array_diff( $prog_ids, $approved_progress_items ) );
+	// var_dump( "\nleftovers progs? ", array_diff( $prog_ids, $approved_progress_items ) );
 
 	// From the approved progress items, get their parent_item meta.
 	// These IDs are the "approved" or completed PSEs.
 	$completed_pses  = get_parent_item_meta_for_items( $approved_progress_items );
-	var_dump( "\nleftovers pses? ", array_diff( $pse_ids, $completed_pses ) );
+	// var_dump( "\nleftovers pses? ", array_diff( $pse_ids, $completed_pses ) );
 
 	// Remove the complete PSE IDs from the all PSE array, and you are left with the "incomplete" PSEs.
 	$incomplete_pses = array_diff( $all_pses, $completed_pses );
@@ -432,7 +408,7 @@ function duplicate_strategy_summaries( $page = 1 ) {
 }
 
 // update centroids and county lists from a CSV.
-import_board_geo_data();
+// import_board_geo_data();
 function import_board_geo_data( $dry_run = true ) {
 	if ( ( $handle = fopen(cc_aha_get_plugin_base_path() . "working/2023-fy/AHA2021_Centroids.csv", "r") ) !== FALSE ) {
 		$row = 1;
