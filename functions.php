@@ -210,3 +210,42 @@ add_filter( 'bp_core_register_common_scripts', function ( $scripts ) {
     }
     return $scripts;
 });
+
+/**
+ * Add the required OneTrust cookie settings script.
+ * @since 1.1.2 
+ */ 
+function pocono_child_aha_enqueue_cookie_scripts() {
+    $domain_key = '9b2993f3-fd5d-4fd5-aa1e-3c8a2f7320f5-test';
+    if ( false !== strpos( get_site_url(), 'impactcentral.heart.org' ) ) {
+        $domain_key = '9b2993f3-fd5d-4fd5-aa1e-3c8a2f7320f5';
+    }
+
+    // Test: 9b2993f3-fd5d-4fd5-aa1e-3c8a2f7320f5-test
+    // Prod: 9b2993f3-fd5d-4fd5-aa1e-3c8a2f7320f5
+    // Desired output:
+    // <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript charset=UTF-8" data-domain-script="9b2993f3-fd5d-4fd5-aa1e-3c8a2f7320f5-test" ></script>
+    // <script type="text/javascript">
+    // function OptanonWrapper() { }
+    // </script>
+    wp_enqueue_script( 'aha_cookie_consent', 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js', array(), null );
+    wp_script_add_data( 'aha_cookie_consent', 'domain-script', $domain_key );
+    wp_add_inline_script( 'aha_cookie_consent', 'function OptanonWrapper() {}' );
+}
+add_action( 'wp_enqueue_scripts', 'pocono_child_aha_enqueue_cookie_scripts' );
+
+/**
+ * Add the data-domain-script attribute to the OneTrust cookie settings script.
+ * @since 1.1.2 
+ */ 
+function pocono_child_aha_add_domain_data_to_cookie_script_tag( $tag, $handle ) {
+    if ( $handle !== 'aha_cookie_consent' ) {
+        return $tag;
+    }
+    $val = wp_scripts()->get_data( $handle, 'domain-script' );
+    if ( $val ) {
+        $tag = str_replace( '></', ' data-domain-script="'. esc_attr( $val ) .'"></', $tag );
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'pocono_child_aha_add_domain_data_to_cookie_script_tag', 10, 2 );
