@@ -412,8 +412,7 @@ a.submit_staff_partners{
 }
 
 // AHA injected footer
-#footer-main,
-.custom-contact {
+footer.copyright-divider {
 	.container-fluid {
 	  width:100%;
 	  padding-right:15px;
@@ -428,7 +427,9 @@ a.submit_staff_partners{
 
 	.col-xs-6,
 	.col-sm-3,
+	.col-sm-4,
 	.col-sm-6,
+	.col-sm-8,
 	.col-sm-12,
 	.col-md-2,
 	.col-md-3,
@@ -441,13 +442,17 @@ a.submit_staff_partners{
 	  padding-left:15px
 	}
 	@media(min-width:576px) {
+	  .col-sm-4 {
+	    flex:0 0 33%;
+	    max-width:33%
+	  }
 	  .col-sm-6 {
 	    flex:0 0 25%;
 	    max-width:25%
 	  }
-	  .col-sm-6 {
-	    flex:0 0 50%;
-	    max-width:50%
+	  .col-sm-8 {
+	    flex:0 0 66%;
+	    max-width:66%
 	  }
   	  .col-sm-12 {
 	    flex:0 0 100%;
