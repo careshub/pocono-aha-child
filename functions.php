@@ -12,7 +12,7 @@ function virtue_child_arc_scripts() {
     wp_enqueue_style( 'pocono-child-aha-style',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'pocono-stylesheet' ),
-        "6.0.0"
+        filemtime( get_stylesheet_directory() . '/style.css' )
     );
 }
 add_action( 'wp_enqueue_scripts', 'virtue_child_arc_scripts' );
@@ -103,8 +103,8 @@ function add_aha_required_footer() {
     if ( defined( 'DEV_ENVIRONMENT' ) && DEV_ENVIRONMENT ) {
         return;
     }
-	?>
-	<script type="text/javascript">
+    ?>
+    <script type="text/javascript">
     // FOOTER OPTIONS - - - - - - - - - - - - - - -
     // This is for the content in the yellow region
     // Comment out if not needed
@@ -125,10 +125,10 @@ function add_aha_required_footer() {
     var showDualLogo = false;
     // Set to true if need to inject Twitter Bootstrap
     var ahaFooterLoadBootstrap = false;
-	</script>
-	<script id="footerScriptTag" src="//static.heart.org/ahaanywhere/responsive/js/aha-footer-external-responsive.v2.js" data-site-contact="true" type="text/javascript"></script>
+    </script>
+    <script id="footerScriptTag" src="//static.heart.org/ahaanywhere/responsive/js/aha-footer-external-responsive.v2.js" data-site-contact="true" type="text/javascript"></script>
 
-	<?php
+    <?php
 }
 add_action( 'wp_footer', 'add_aha_required_footer', 88 );
 
