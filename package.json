@@ -1,19 +1,19 @@
 {
   "name": "virtue-child-arc",
   "devDependencies": {
-    "grunt": "latest",
+    "autoprefixer": "^7.2.6",
+    "cssnano": "^4.1.10",
+    "grunt": "^1.0.4",
+    "grunt-contrib-imagemin": "^3.1.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-uglify": "^3.4.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-dart-sass": "^2.0.1",
     "grunt-postcss": "latest",
-    "postcss-flexbugs-fixes": "latest",
-    "autoprefixer": "~9.8",
-    "cssnano": "latest",
-    "grunt-contrib-imagemin": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-sass": "latest",
-    "node-sass": "latest",
-    "load-grunt-tasks": "latest",
-    "matchdep": "latest"
+    "load-grunt-tasks": "^5.1.0",
+    "matchdep": "latest",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "sass": "^1.54.8"
   },
   "license": "GPL-2.0+",
   "version": "1.0.0"

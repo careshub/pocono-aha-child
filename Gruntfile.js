@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 
 	// load all grunt tasks matching the `grunt-*` pattern
 	require('load-grunt-tasks')(grunt);
-	var sass = require('node-sass');
+    var sass = require('sass');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -19,38 +19,39 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: ['css/*.scss'],
-				tasks: ['sass', 'postcss']
+				tasks: ['dart-sass', 'postcss']
 			}
 		},
 
-		sass: {
-			options: {
-				implementation: sass
+        'dart-sass': {
+            options: {
+				implementation: sass,
+				sourceMap: true
 			},
-			dist: {
-				files: {
+            dist: {
+                files: {
 				    'style.css': 'css/style.scss'
 				}
-			}
-		},
+            }
+        },
 
-		// PostCSS handles post-processing on CSS files. Used here to autoprefix and minify.
-		postcss: {
-			options: {
-				map: {
-					inline: false, // save all sourcemaps as separate files...
-					annotation: '' // ...to the specified directory
-				},
-				processors: [
-					require('postcss-flexbugs-fixes'),
-					require('autoprefixer'),
-					require('cssnano')({ discardUnused: { fontFace: false }, zindex: false })
-				]
-			},
-			dist: {
-				src: '*.css'
-			}
-		},
+        // PostCSS handles post-processing on CSS files. Used here to autoprefix and minify.
+        postcss: {
+            options: {
+                map: {
+                    inline: false, // save all sourcemaps as separate files...
+                    annotation: '' // ...to the specified directory
+                },
+                processors: [
+                    require('postcss-flexbugs-fixes'),
+                    require('autoprefixer'),
+                    require('cssnano')({ discardUnused: { fontFace: false }, zindex: false })
+                ]
+            },
+            dist: {
+                src: '*.css'
+            }
+        },
 
 		// JavaScript linting with jshint
 		jshint: {
@@ -80,9 +81,9 @@ module.exports = function(grunt) {
 
 	// Register tasks
 	// Typical run, cleans up css and js, starts a watch task.
-	grunt.registerTask('default', ['sass', 'postcss', 'jshint', 'watch']);
+	grunt.registerTask('default', ['dart-sass', 'postcss', 'jshint', 'watch']);
 
 	// Before releasing a build, do above plus minimize all images.
-	grunt.registerTask('build', ['sass', 'postcss',  'jshint', 'imagemin']);
+	grunt.registerTask('build', ['dart-sass', 'postcss',  'jshint', 'imagemin']);
 
 };
